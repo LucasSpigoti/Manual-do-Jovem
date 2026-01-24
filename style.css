@@ -1,0 +1,227 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS E CORES
+   ========================================= */
+:root {
+    --azul-principal: #00bcd4;
+    --azul-neon: #00e5ff;
+    --preto-profundo: #0a0a0a;
+    --preto-suave: #121212;
+    --branco: #ffffff;
+    --verde:  #36e036;
+
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: radial-gradient(circle at top center, #1a3a3e 0%, var(--preto-profundo) 70%);
+    background-attachment: fixed; 
+    color: var(--branco);
+    min-height: 100vh;
+}
+header {
+    width: 100%;
+    padding: 20px 0;
+    background: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(10px); 
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 188, 212, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.hero {
+    padding: 100px 20px;
+    text-align: center;
+    background: transparent;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    text-shadow: 0 0 20px rgba(0, 188, 212, 0.6);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--azul-principal);
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+/* Responsividade para celulares */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .hero { padding: 50px 20px; }
+}   
+
+.logo-img {
+    height: 70px; /* Aumentei um pouco para destacar mais */
+    width: auto;
+    /* Filtro opcional caso sua logo precise de mais brilho no fundo escuro */
+    filter: drop-shadow(0 0 5px rgba(0, 188, 212, 0.3));
+}
+/* =========================================
+   ESTILOS DA PÁGINA INICIAL (HOME)
+   ========================================= */
+.home-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.grid-treinamentos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(25, 25, 25, 0.7) !important; /* Vidro escuro */
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 188, 212, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    color: inherit;    
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    border-color: var(--azul-neon);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+}
+.card-image img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-content { padding: 20px; }
+
+.tag {
+    background: var(--azul-principal);
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.card-content p {
+    color: #ffffff; 
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.card-content h3 {
+    color: var(--branco);
+    margin: 10px 0;
+    font-size: 1.4rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+/* =========================================
+   ESTILOS DOS SLIDES (TREINAMENTO)
+   ========================================= */
+.training-container {
+    background: rgba(25, 25, 25, 0.7) !important; 
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 188, 212, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.progress-container {
+    width: 100%;
+    background: #444;
+    height: 8px;
+}
+
+#progress-bar {
+    width: 0%; /* Controlado pelo JS */
+    height: 100%;
+    background: var(--azul-principal);
+    transition: 0.4s ease;
+}
+
+.slide {
+    display: none;
+    padding: 20px;
+    text-align: center;
+}
+
+.slide.active { display: block; animation: fadeIn 0.5s; }
+
+.img-slide {
+    width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: rgba(0,0,0,0.3);
+}
+
+/* =========================================
+   BOTÕES E ELEMENTOS COMUNS
+   ========================================= */
+button, .btn-finish {
+    background: var(--azul-principal);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.option-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--azul-principal);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.option-btn:hover {
+    background: rgba(0, 188, 212, 0.2);
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.4);
+}
+
+.btn-neon {
+    background: var(--azul-principal);
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.6);
+    border: none;
+    color: var(--preto);
+    padding: 15px 30px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.btn-finish { background: var(--azul-neon); }
+
+button:disabled { background: #555; cursor: not-allowed; }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
