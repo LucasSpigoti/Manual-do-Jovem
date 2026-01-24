@@ -8,7 +8,7 @@
     --preto-suave: #121212;
     --branco: #ffffff;
     --verde:  #36e036;
-
+    --preto: #000000; 
 }
 
 body {
@@ -128,10 +128,14 @@ header {
    ESTILOS DOS SLIDES (TREINAMENTO)
    ========================================= */
 .training-container {
+    max-width: 900px; /* Limita a largura para não cansar a vista */
+    margin: 40px auto; /* Centraliza na tela */
     background: rgba(25, 25, 25, 0.7) !important; 
     backdrop-filter: blur(5px);
     border: 1px solid rgba(0, 188, 212, 0.2);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* Garante que a barra de progresso não saia das bordas */
+    border-radius: 12px;
 }
 
 .progress-container {
@@ -184,6 +188,8 @@ button, .btn-finish {
     display: inline-block;
 }
 
+/* Quizz*/
+
 .options-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -201,6 +207,13 @@ button, .btn-finish {
     transition: 0.3s;
 }
 
+#score-text {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: center; 
+}
+
 .option-btn:hover {
     background: rgba(0, 188, 212, 0.2);
     box-shadow: 0 0 15px rgba(0, 188, 212, 0.4);
@@ -210,11 +223,12 @@ button, .btn-finish {
     background: var(--azul-principal);
     box-shadow: 0 0 20px rgba(0, 188, 212, 0.6);
     border: none;
-    color: var(--preto);
+    color: var(--preto-profundo); /* Corrigido aqui */
     padding: 15px 30px;
     font-weight: bold;
     border-radius: 30px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .btn-finish { background: var(--azul-neon); }
@@ -224,4 +238,22 @@ button:disabled { background: #555; cursor: not-allowed; }
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .options-grid {
+        grid-template-columns: 1fr; /* Transforma 2 colunas em 1 no celular */
+    }
+    
+    .hero h1 { 
+        font-size: 2.2rem; 
+    }
+
+    .img-slide {
+        max-height: 50vh; /* Ajusta a imagem para não ocupar a tela toda no celular */
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
 }
