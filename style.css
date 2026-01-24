@@ -240,20 +240,32 @@ button:disabled { background: #555; cursor: not-allowed; }
     to { opacity: 1; }
 }
 
-@media (max-width: 600px) {
-    .options-grid {
-        grid-template-columns: 1fr; /* Transforma 2 colunas em 1 no celular */
+@media (max-width: 768px) {
+    /* Home */
+    .grid-treinamentos {
+        grid-template-columns: 1fr; 
     }
-    
-    .hero h1 { 
-        font-size: 2.2rem; 
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    /* Slides do Treinamento */
+    .training-container {
+        margin: 10px;
+        border-radius: 8px;
     }
 
     .img-slide {
-        max-height: 50vh; /* Ajusta a imagem para não ocupar a tela toda no celular */
+        max-height: 45vh; 
     }
 
-    .hero {
-        padding: 60px 20px;
+    /* Quiz */
+    .options-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    .navigation {
+        padding: 15px;
     }
 }
