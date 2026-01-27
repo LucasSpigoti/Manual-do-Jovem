@@ -200,15 +200,16 @@ header {
 }
 
 .social-links {
-    display: flex;
-    gap: 25px;
-    font-size: 1.8rem; /* Tamanho dos ícones */
-    margin-top: 10px;
+    display: flex !important; 
+    flex-direction: row !important; 
+    justify-content: center;
+    gap: 30px; 
+    margin-top: 15px;
 }
 
-.social-icon {
-    color: #666; 
-    transition: all 0.3s ease;
+
+.social-icon i {
+    font-size: 2rem; 
 }
 
 /* Efeito Hover Individual */
@@ -335,4 +336,5 @@ button:disabled { background: #555; cursor: not-allowed; }
         padding: 15px;
     }
 }
+
 
