@@ -100,3 +100,73 @@ function showResult() {
     resultDiv.style.display = 'block';
     document.getElementById('score-text').innerText = `Você acertou ${score} de ${listaPerguntas.length} perguntas!`;
 }
+
+function showResult() {
+    const listaPerguntas = typeof meuQuiz !== 'undefined' ? meuQuiz : questions;
+    document.getElementById('quiz-container').style.display = 'none';
+    const resultDiv = document.getElementById('quiz-result');
+    resultDiv.style.display = 'block';
+    document.getElementById('score-text').innerText = `Você acertou ${score} de ${listaPerguntas.length} perguntas!`;
+
+    // Se o usuário acertou mais de 70%, libera o certificado
+    if (score >= (listaPerguntas.length * 0.7)) {
+        document.getElementById('certificate-area').style.display = 'block';
+    }
+}
+
+function generateCertificate() {
+    const name = document.getElementById('user-name').value;
+    if (!name) return alert("Por favor, digite seu nome!");
+
+    const canvas = document.getElementById('certificate-canvas');
+    const ctx = canvas.getContext('2d');
+
+    // 1. Fundo do Certificado
+    ctx.fillStyle = '#0a0a0a'; // Preto profundo
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // 2. Borda Neon
+    ctx.strokeStyle = '#00bcd4';
+    ctx.lineWidth = 20;
+    ctx.strokeRect(40, 40, canvas.width - 80, canvas.height - 80);
+
+    // 3. Textos
+    ctx.fillStyle = '#ffffff';
+    ctx.textAlign = 'center';
+    
+    ctx.font = '30px Segoe UI';
+    ctx.fillText('CERTIFICADO DE CONCLUSÃO', canvas.width / 2, 150);
+
+    ctx.font = '20px Segoe UI';
+    ctx.fillStyle = '#00bcd4';
+    ctx.fillText('Certificamos que', canvas.width / 2, 220);
+
+    ctx.font = 'bold 45px Segoe UI';
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(name.toUpperCase(), canvas.width / 2, 300);
+
+    ctx.font = '20px Segoe UI';
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText('concluiu com êxito o treinamento de', canvas.width / 2, 380);
+
+    ctx.font = 'bold 25px Segoe UI';
+    ctx.fillStyle = '#00e5ff';
+    ctx.fillText('MERCADO DE TRABALHO E CURRÍCULO', canvas.width / 2, 430);
+
+    ctx.font = '15px Segoe UI';
+    ctx.fillStyle = '#888';
+    ctx.fillText('Gerado pelo Manual do Jovem - ' + new Date().toLocaleDateString(), canvas.width / 2, 530);
+
+    // Mostrar prévia e botão de download
+    const dataUrl = canvas.toDataURL('image/png');
+    document.getElementById('preview-container').innerHTML = `<img src="${dataUrl}" style="width:100%; max-width:400px; margin-top:20px; border:1px solid #333;">`;
+    document.getElementById('download-btn').style.display = 'inline-block';
+}
+
+function downloadCertificate() {
+    const canvas = document.getElementById('certificate-canvas');
+    const link = document.createElement('a');
+    link.download = 'meu-certificado.png';
+    link.href = canvas.toDataURL();
+    link.click();
+}
