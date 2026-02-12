@@ -125,6 +125,24 @@
     <p id="quiz-feedback" style="margin-top: 15px; font-weight: bold;"></p>
 </section>
 
+
+<section id="quiz-result" class="slide">
+    <h2>Parabéns! Você concluiu o treinamento.</h2>
+    <p id="score-text"></p>
+    
+    <div id="certificate-area" style="display:none;">
+        <input type="text" id="user-name" placeholder="Digite seu nome completo">
+        <button onclick="generateCertificate()" class="btn-neon">Gerar Certificado</button>
+        <br>
+        <canvas id="certificate-canvas" width="800" height="600" style="display:none;"></canvas>
+        <div id="preview-container"></div>
+        <br>
+        <button id="download-btn" class="btn-finish" style="display:none;" onclick="downloadCertificate()">Baixar PDF/Imagem</button>
+        <a href="home.html" class="btn-finish">Finalizar Treinamento</a>
+    </div>
+</section>
+
+
 <section id="quiz-result" class="slide" style="display: none;">
     <h2>Resultado do Quiz</h2>
     <p id="score-text"></p>
@@ -157,4 +175,3 @@
 </script>
 </body>
 </html>
-
