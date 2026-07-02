@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Comunicação Assertiva</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Estilos para o player de vídeo local ficar perfeito e responsivo */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 700px; /* Evita que o vídeo fique gigante na tela */
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.4);
+            overflow: hidden;
+            background: #000;
+        }
+        video {
+            width: 100%;
+            display: block;
+        }
+        .video-container {
+            padding: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Manual do Jovem" class="logo-img">
+        </div>
+    </header>
+
+    <div class="training-container">
+        <!-- Barra de progresso estática -->
+        <div class="progress-container">
+            <div id="progress-bar" style="width: 100%;"></div>
+        </div>
+
+        <div class="video-container">
+            <h2>Módulo: Comunicação Assertiva 🗣️</h2>
+            <p style="color: var(--azul-principal); margin-bottom: 25px;">Assista ao vídeo completo abaixo para liberar o seu quiz e o certificado.</p>
+            
+            <div class="video-wrapper">
+                <video controls controlsList="nodownload">
+                    <source src="comunicacao.mp4" type="video/mp4">
+                    Seu navegador não suporta a reprodução de vídeos.
+                </video>
+            </div>
+
+            <p style="margin-top: 30px; font-size: 0.95rem;">Terminou de assistir e se sente preparado?</p>
+            <button class="btn-neon" onclick="startQuiz()" style="margin-top: 10px; margin-bottom: 10px;">Começar Quiz</button>
+
+            <!-- CONTAINER DO QUIZ -->
+            <section id="quiz-container" class="slide" style="display: none;">
+                <h2 id="quiz-question">Pergunta aqui?</h2>
+                <div id="quiz-options" class="options-grid"></div>
+                <p id="quiz-feedback" style="margin-top: 15px; font-weight: bold;"></p>
+            </section>
+
+            <!-- RESULTADO E ÁREA DE CERTIFICADO -->
+            <section id="quiz-result" class="slide" style="display: none;">
+                <h2>Resultado do Quiz</h2>
+                <p id="score-text"></p>
+                
+                <div id="certificate-area" style="display:none; margin-top: 20px;">
+                    <input type="text" id="user-name" placeholder="Digite seu nome completo">
+                    <br>
+                    <button onclick="generateCertificate()" class="btn-neon">Gerar Certificado</button>
+                    <br>
+                    <canvas id="certificate-canvas" width="800" height="600" style="display:none;"></canvas>
+                    <div id="preview-container"></div>
+                    <br>
+                    <button id="download-btn" class="btn-finish" style="display:none; margin-bottom: 15px;" onclick="downloadCertificate()">Baixar Imagem</button>
+                </div>
+                <br>
+                <a href="home.html" class="btn-finish">Finalizar Treinamento</a>
+            </section>
+        </div>
+
+        <nav class="navigation" style="display: none;">
+            <button id="prevBtn" disabled>Anterior</button>
+            <button id="nextBtn" disabled>Próximo</button>
+        </nav>
+    </div> 
+
+    <script src="script.js"></script>
+    <script>
+        // Perguntas exclusivas do Treinamento 2 (Comunicação Assertiva)
+        const meuQuiz = [
+            { q: "O que define o comportamento de uma pessoa assertiva?", options: ["Falar o que pensa sem se importar em magoar os outros", "Expressar ideias e sentimentos de forma clara, honesta e respeitosa", "Ficar em silêncio para evitar qualquer tipo de conflito", "Impor sua opinião a todo custo usando um tom de voz alto"], correct: 1 },
+            { q: "Qual a diferença entre a comunicação assertiva e a agressiva?", options: ["A assertiva defende direitos respeitando o outro; a agressiva ataca e desrespeita", "Não há diferença, ambas buscam obrigar o outro a concordar", "A agressiva é sempre mais eficiente no ambiente de trabalho", "A assertiva foca em ironias e piadas para desarmar a conversa"], correct: 0 },
+            { q: "O que significa praticar a 'Escuta Ativa' em um diálogo?", options: ["Ouvir esperando a sua vez de interromper e falar", "Fingir que está prestando atenção enquanto mexe no celular", "Ouvir com atenção total, buscando compreender de verdade o ponto do outro", "Concordar com tudo o que a outra pessoa diz, mesmo discordando"], correct: 2 },
+            { q: "Por que a comunicação 'Passiva' pode ser prejudicial profissionalmente?", options: ["Porque ela faz o profissional parecer autoritário demais", "Porque a pessoa não expressa suas necessidades e acumula frustrações", "Porque gera muitas brigas e discussões na equipe", "Porque gasta muita energia falando excessivamente"], correct: 1 },
+            { q: "Qual o elemento fundamental para a empatia na comunicação assertiva?", options: ["Colocar-se no lugar do outro para entender sua perspectiva antes de responder", "Mudar de opinião apenas para agradar quem está ouvindo", "Falar somente sobre os seus próprios sentimentos e conquistas", "Ignorar o tom de voz e focar exclusivamente nas palavras ditas"], correct: 0 }
+        ];
+    </script>
+</body>
+</html>
