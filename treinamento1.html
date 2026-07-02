@@ -10,10 +10,10 @@
 <body>
 
     <header>
-    <div class="logo-container">
-        <img src="logo.png" alt="Manual do Jovem" class="logo-img">
-    </div>
-</header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Manual do Jovem" class="logo-img">
+        </div>
+    </header>
 
     <div class="training-container">
         <div class="progress-container">
@@ -24,154 +24,122 @@
             <section class="slide active">
                 <span class="slide-count">Slide 1 / 13</span>
                 <h2>Início do Treinamento</h2>
-                 <img src="img/t1/slide1.png" alt="Ilustração" class="img-slide">
-            
+                <img src="img/t1/slide1.png" alt="Ilustração" class="img-slide">
             </section>
 
- <section class="slide">
-    <span class="slide-count">Slide 2 / 13</span>
-    <h2></h2>
-    <img src="img/t1/slide2.png" alt="Ilustração" class="img-slide">
-
-    </section>
+            <section class="slide">
+                <span class="slide-count">Slide 2 / 13</span>
+                <h2></h2>
+                <img src="img/t1/slide2.png" alt="Ilustração" class="img-slide">
+            </section>
 
             <section class="slide">
-    <span class="slide-count">Slide 3 / 13</span>
-    <h2></h2>
-    <img src="img/t1/slide3.png" alt="Ilustração" class="img-slide">
-       
-</section>
+                <span class="slide-count">Slide 3 / 13</span>
+                <h2></h2>
+                <img src="img/t1/slide3.png" alt="Ilustração" class="img-slide">
+            </section>
 
- <section class="slide">
-    <span class="slide-count">Slide 4 / 13</span>
-   <h2></h2>
-    <img src="img/t1/slide4.png" alt="Ilustração" class="img-slide">
-   
-</section>
+            <section class="slide">
+                <span class="slide-count">Slide 4 / 13</span>
+                <h2></h2>
+                <img src="img/t1/slide4.png" alt="Ilustração" class="img-slide">
+            </section>
 
- <section class="slide">
-    <span class="slide-count">Slide 5 / 13</span>
- <h2></h2>
-    <img src="img/t1/slide5.png" alt="Ilustração" class="img-slide">
+            <section class="slide">
+                <span class="slide-count">Slide 5 / 13</span>
+                <h2></h2>
+                <img src="img/t1/slide5.png" alt="Ilustração" class="img-slide">
+            </section>
 
-    </section>
+            <section class="slide">
+                <span class="slide-count">Slide 6 / 13</span>
+                <h2></h2>
+                <img src="img/t1/slide6.png" alt="Ilustração" class="img-slide">
+            </section>
 
- <section class="slide">
-    <span class="slide-count">Slide 6 / 13</span>
-    <h2></h2>
-    <img src="img/t1/slide6.png" alt="Ilustração" class="img-slide">
+            <section class="slide">
+                <span class="slide-count">Slide 7 / 13</span>
+                <h2></h2>
+                <img src="img/t1/slide7.png" alt="Ilustração" class="img-slide">
+            </section>
 
-    </section>
+            <section class="slide">
+                <span class="slide-count">Slide 8 / 13</span>
+                <h2></h2>
+                <img src="img/t1/slide8.png" alt="Ilustração" class="img-slide">
+            </section>
 
+            <section class="slide">
+                <span class="slide-count">Slide 9 / 13</span>
+                <h2></h2>
+                <img src="img/t1/slide9.png" alt="Ilustração" class="img-slide">
+            </section>
 
- <section class="slide">
-    <span class="slide-count">Slide 7 / 13</span>
-    <h2></h2>
-    <img src="img/t1/slide7.png" alt="Ilustração" class="img-slide">
+            <section class="slide">
+                <span class="slide-count">Slide 10 / 13</span>
+                <h2></h2>
+                <img src="img/t1/slide10.png" alt="Ilustração" class="img-slide">
+            </section>
 
-    </section>
+            <section class="slide">
+                <span class="slide-count">Slide 11 / 13</span>
+                <h2></h2>
+                <img src="img/t1/slide11.png" alt="Ilustração" class="img-slide">
+            </section>
 
+            <section class="slide">
+                <span class="slide-count">Slide 12 / 13</span>
+                <h2></h2>
+                <img src="img/t1/slide12.png" alt="Ilustração" class="img-slide">
+            </section>
 
- <section class="slide">
-    <span class="slide-count">Slide 8 / 13</span>
-    <h2></h2>
-    <img src="img/t1/slide8.png" alt="Ilustração" class="img-slide">
+            <section class="slide">
+                <span class="slide-count">Final do Conteúdo</span>
+                <h2>Excelente progresso!</h2>
+                <p>Agora, vamos testar seus conhecimentos com um quiz rápido de 5 perguntas.</p>
+                <button class="btn-neon" onclick="startQuiz()">Começar Quiz</button>
+            </section>
 
-    </section>
+            <section id="quiz-container" class="slide" style="display: none;">
+                <h2 id="quiz-question">Pergunta aqui?</h2>
+                <div id="quiz-options" class="options-grid"></div>
+                <p id="quiz-feedback" style="margin-top: 15px; font-weight: bold;"></p>
+            </section>
 
+            <section id="quiz-result" class="slide" style="display: none;">
+                <h2>Resultado do Quiz</h2>
+                <p id="score-text"></p>
+                
+                <div id="certificate-area" style="display:none; margin-top: 20px;">
+                    <input type="text" id="user-name" placeholder="Digite seu nome completo">
+                    <br>
+                    <button onclick="generateCertificate()" class="btn-neon">Gerar Certificado</button>
+                    <br>
+                    <canvas id="certificate-canvas" width="800" height="600" style="display:none;"></canvas>
+                    <div id="preview-container"></div>
+                    <br>
+                    <button id="download-btn" class="btn-finish" style="display:none; margin-bottom: 15px;" onclick="downloadCertificate()">Baixar Imagem</button>
+                </div>
+                <br>
+                <a href="home.html" class="btn-finish">Finalizar Treinamento</a>
+            </section>
+        </div> 
+        
+        <nav class="navigation">
+            <button id="prevBtn">Anterior</button>
+            <button id="nextBtn">Próximo</button>
+        </nav>
+    </div> 
 
- <section class="slide">
-    <span class="slide-count">Slide 9 / 13</span>
-    <h2></h2>
-    <img src="img/t1/slide9.png" alt="Ilustração" class="img-slide">
-
-    </section>
-
-
- <section class="slide">
-    <span class="slide-count">Slide 10 / 13</span>
-    <h2></h2>
-    <img src="img/t1/slide10.png" alt="Ilustração" class="img-slide">
-
-    </section>
-
-
- <section class="slide">
-    <span class="slide-count">Slide 11 / 13</span>
-    <h2></h2>
-    <img src="img/t1/slide11.png" alt="Ilustração" class="img-slide">
-
-    </section>
-
-
- <section class="slide">
-    <span class="slide-count">Slide 12 / 13</span>
-    <h2></h2>
-    <img src="img/t1/slide12.png" alt="Ilustração" class="img-slide">
-
-    </section>
-
-          <section class="slide">
-    <span class="slide-count">Final do Conteúdo</span>
-    <h2>Excelente progresso!</h2>
-    <p>Agora, vamos testar seus conhecimentos com um quiz rápido de 5 perguntas.</p>
-    <button class="btn-neon" onclick="startQuiz()">Começar Quiz</button>
-</section>
-
-<section id="quiz-container" class="slide" style="display: none;">
-    <h2 id="quiz-question">Pergunta aqui?</h2>
-    <div id="quiz-options" class="options-grid">
-        </div>
-    <p id="quiz-feedback" style="margin-top: 15px; font-weight: bold;"></p>
-</section>
-
-
-<section id="quiz-result" class="slide">
-    <h2>Parabéns! Você concluiu o treinamento.</h2>
-    <p id="score-text"></p>
-    
-    <div id="certificate-area" style="display:none;">
-        <input type="text" id="user-name" placeholder="Digite seu nome completo">
-        <button onclick="generateCertificate()" class="btn-neon">Gerar Certificado</button>
-        <br>
-        <canvas id="certificate-canvas" width="800" height="600" style="display:none;"></canvas>
-        <div id="preview-container"></div>
-        <br>
-        <button id="download-btn" class="btn-finish" style="display:none;" onclick="downloadCertificate()">Baixar PDF/Imagem</button>
-        <a href="home.html" class="btn-finish">Finalizar Treinamento</a>
-    </div>
-</section>
-
-
-<section id="quiz-result" class="slide" style="display: none;">
-    <h2>Resultado do Quiz</h2>
-    <p id="score-text"></p>
-    <a href="home.html" class="btn-finish">Finalizar Treinamento</a>
-</section>
-
-
-
-</div> <nav class="navigation">
-        <button id="prevBtn">Anterior</button>
-        <button id="nextBtn">Próximo</button>
-    </nav>
-    
-</div> <script src="script.js"></script>
-
+    <script src="script.js"></script>
     <script>
-    // Perguntas exclusivas do Treinamento 1
-    const meuQuiz = [
-    { q: "Qual é o principal objetivo da seção “Dados Pessoais” no currículo?", options: ["Mostrar hobbies e interesses pessoais ", "Identificar o candidato e facilitar o contato pelo recrutador", "Apresentar experiências profissionais", "Listar cursos e certificações"], correct: 1 },
-
-    { q: "Qual dessas informações NÃO deve ser incluída no currículo, segundo o slide?", options: ["E-mail profissional", "Telefone atualizado", "CPF e RG", "Nome completo"], correct: 2 },
-
-    { q: "Qual é a forma correta de organizar a Formação Acadêmica no currículo?", options: ["Do mais antigo para o mais recente", "Em ordem alfabética", "Do mais recente para o mais antigo", "Por ordem de importância pessoal"], correct: 2 },
-
-
-    { q: "Sobre a seção “Conhecimentos em Informática”, o que é recomendado?", options: ["Colocar tudo que já ouviu falar", "Informar apenas o que realmente sabe usar", "Usar termos técnicos difíceis", "Não informar nível de conhecimento"], correct: 1 },
-
-    { q: "Qual é a função principal do LinkedIn, segundo o conteúdo do treinamento?", options: ["Criar currículos com modelos prontos", "Publicar fotos pessoais", "Fazer cursos online gratuitos", "Conectar profissionais, empresas e oportunidades"], correct: 3 }
-    ];
-</script>
+        const meuQuiz = [
+            { q: "Qual é o principal objetivo da seção “Dados Pessoais” no currículo?", options: ["Mostrar hobbies e interesses pessoais ", "Identificar o candidato e facilitar o contato pelo recrutador", "Apresentar experiências profissionais", "Listar cursos e certificações"], correct: 1 },
+            { q: "Qual dessas informações NÃO deve ser incluída no currículo, segundo o slide?", options: ["E-mail profissional", "Telefone atualizado", "CPF e RG", "Nome completo"], correct: 2 },
+            { q: "Qual é a forma correta de organizar a Formação Acadêmica no currículo?", options: ["Do mais antigo para o mais recente", "Em ordem alfabética", "Do mais recente para o mais antigo", "Por ordem de importância pessoal"], correct: 2 },
+            { q: "Sobre a seção “Conhecimentos em Informática”, o que é recomendado?", options: ["Colocar tudo que já ouviu falar", "Informar apenas o que realmente sabe usar", "Usar termos técnicos difíceis", "Não informar nível de conhecimento"], correct: 1 },
+            { q: "Qual é a função principal do LinkedIn, segundo o conteúdo do treinamento?", options: ["Criar currículos com modelos prontos", "Publicar fotos pessoais", "Fazer cursos online gratuitos", "Conectar profissionais, empresas e oportunidades"], correct: 3 }
+        ];
+    </script>
 </body>
 </html>
