@@ -2,16 +2,110 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Monte Seu Currículo</title>
+    <title>Monte Seu Currículo | Manual do Jovem</title>
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Estilos específicos para a tela de treinamento integrados ao novo tema */
+        .training-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: var(--branco);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 40px;
+            text-align: center;
+        }
+        .progress-container {
+            width: 100%;
+            background: #e2e8f0;
+            border-radius: 10px;
+            height: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        #progress-bar {
+            height: 100%;
+            background: var(--azul-principal, #3bb3fb);
+            width: 8%; /* Inicial */
+            transition: width 0.3s ease;
+        }
+        .slide { display: none; animation: fadeIn 0.5s; }
+        .slide.active { display: block; }
+        .slide-count {
+            display: inline-block;
+            background: #f1f5f9;
+            color: var(--texto-cinza, #64748b);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .img-slide {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .navigation button {
+            background: var(--azul-principal, #3bb3fb);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+        .navigation button:hover { background: #2a9be0; }
+        .navigation button:disabled { background: #cbd5e1; cursor: not-allowed; }
+        
+        .options-grid { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; text-align: left; }
+        .options-grid button {
+            background: #f8f9fc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+        .options-grid button:hover { border-color: var(--azul-principal, #3bb3fb); background: #f0f8ff; }
+        input[type="text"] {
+            width: 100%; max-width: 400px; padding: 12px;
+            border: 1px solid #cbd5e1; border-radius: 6px;
+            margin-top: 10px; font-family: inherit;
+        }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
-            <img src="logo.png" alt="Manual do Jovem" class="logo-img">
+        <div class="header-container">
+            <div class="logo">
+                <a href="home.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+                    <img src="logo.png" alt="Manual do Jovem" class="logo-img">
+                    <span class="logo-text">Manual<strong>Jovem</strong></span>
+                </a>
+            </div>
+            <nav class="navbar">
+                <a href="home.html">Home</a>
+                <a href="#" class="active">Treinamentos</a>
+            </nav>
         </div>
     </header>
 
@@ -27,77 +121,23 @@
                 <img src="img/t1/slide1.png" alt="Ilustração" class="img-slide">
             </section>
 
-            <section class="slide">
-                <span class="slide-count">Slide 2 / 13</span>
-                <h2></h2>
-                <img src="img/t1/slide2.png" alt="Ilustração" class="img-slide">
-            </section>
-
-            <section class="slide">
-                <span class="slide-count">Slide 3 / 13</span>
-                <h2></h2>
-                <img src="img/t1/slide3.png" alt="Ilustração" class="img-slide">
-            </section>
-
-            <section class="slide">
-                <span class="slide-count">Slide 4 / 13</span>
-                <h2></h2>
-                <img src="img/t1/slide4.png" alt="Ilustração" class="img-slide">
-            </section>
-
-            <section class="slide">
-                <span class="slide-count">Slide 5 / 13</span>
-                <h2></h2>
-                <img src="img/t1/slide5.png" alt="Ilustração" class="img-slide">
-            </section>
-
-            <section class="slide">
-                <span class="slide-count">Slide 6 / 13</span>
-                <h2></h2>
-                <img src="img/t1/slide6.png" alt="Ilustração" class="img-slide">
-            </section>
-
-            <section class="slide">
-                <span class="slide-count">Slide 7 / 13</span>
-                <h2></h2>
-                <img src="img/t1/slide7.png" alt="Ilustração" class="img-slide">
-            </section>
-
-            <section class="slide">
-                <span class="slide-count">Slide 8 / 13</span>
-                <h2></h2>
-                <img src="img/t1/slide8.png" alt="Ilustração" class="img-slide">
-            </section>
-
-            <section class="slide">
-                <span class="slide-count">Slide 9 / 13</span>
-                <h2></h2>
-                <img src="img/t1/slide9.png" alt="Ilustração" class="img-slide">
-            </section>
-
-            <section class="slide">
-                <span class="slide-count">Slide 10 / 13</span>
-                <h2></h2>
-                <img src="img/t1/slide10.png" alt="Ilustração" class="img-slide">
-            </section>
-
-            <section class="slide">
-                <span class="slide-count">Slide 11 / 13</span>
-                <h2></h2>
-                <img src="img/t1/slide11.png" alt="Ilustração" class="img-slide">
-            </section>
-
-            <section class="slide">
-                <span class="slide-count">Slide 12 / 13</span>
-                <h2></h2>
-                <img src="img/t1/slide12.png" alt="Ilustração" class="img-slide">
-            </section>
+            <section class="slide"><span class="slide-count">Slide 2 / 13</span><img src="img/t1/slide2.png" alt="Ilustração" class="img-slide"></section>
+            <section class="slide"><span class="slide-count">Slide 3 / 13</span><img src="img/t1/slide3.png" alt="Ilustração" class="img-slide"></section>
+            <section class="slide"><span class="slide-count">Slide 4 / 13</span><img src="img/t1/slide4.png" alt="Ilustração" class="img-slide"></section>
+            <section class="slide"><span class="slide-count">Slide 5 / 13</span><img src="img/t1/slide5.png" alt="Ilustração" class="img-slide"></section>
+            <section class="slide"><span class="slide-count">Slide 6 / 13</span><img src="img/t1/slide6.png" alt="Ilustração" class="img-slide"></section>
+            <section class="slide"><span class="slide-count">Slide 7 / 13</span><img src="img/t1/slide7.png" alt="Ilustração" class="img-slide"></section>
+            <section class="slide"><span class="slide-count">Slide 8 / 13</span><img src="img/t1/slide8.png" alt="Ilustração" class="img-slide"></section>
+            <section class="slide"><span class="slide-count">Slide 9 / 13</span><img src="img/t1/slide9.png" alt="Ilustração" class="img-slide"></section>
+            <section class="slide"><span class="slide-count">Slide 10 / 13</span><img src="img/t1/slide10.png" alt="Ilustração" class="img-slide"></section>
+            <section class="slide"><span class="slide-count">Slide 11 / 13</span><img src="img/t1/slide11.png" alt="Ilustração" class="img-slide"></section>
+            <section class="slide"><span class="slide-count">Slide 12 / 13</span><img src="img/t1/slide12.png" alt="Ilustração" class="img-slide"></section>
 
             <section class="slide">
                 <span class="slide-count">Final do Conteúdo</span>
-                <h2>Excelente progresso!</h2>
+                <h2 style="color: var(--azul-escuro-bg);">Excelente progresso! <i class="fa-solid fa-rocket" style="color: var(--azul-principal);"></i></h2>
                 <p>Agora, vamos testar seus conhecimentos com um quiz rápido de 5 perguntas.</p>
-                <button class="btn-neon" onclick="startQuiz()">Começar Quiz</button>
+                <button class="btn btn-primary" style="margin-top: 20px;" onclick="startQuiz()">Começar Quiz <i class="fa-solid fa-check"></i></button>
             </section>
 
             <section id="quiz-container" class="slide" style="display: none;">
@@ -107,27 +147,29 @@
             </section>
 
             <section id="quiz-result" class="slide" style="display: none;">
-                <h2>Resultado do Quiz</h2>
-                <p id="score-text"></p>
+                <h2 style="color: var(--azul-escuro-bg);">Resultado do Quiz</h2>
+                <p id="score-text" style="font-size: 1.1rem; margin-bottom: 20px;"></p>
                 
-                <div id="certificate-area" style="display:none; margin-top: 20px;">
+                <div id="certificate-area" style="display:none; background: #f8f9fc; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+                    <p style="margin-bottom: 10px; font-weight: 600;">Gere seu certificado de conclusão:</p>
                     <input type="text" id="user-name" placeholder="Digite seu nome completo">
-                    <br>
-                    <button onclick="generateCertificate()" class="btn-neon">Gerar Certificado</button>
-                    <br>
+                    <br><br>
+                    <button onclick="generateCertificate()" class="btn btn-primary">Gerar Certificado</button>
                     <canvas id="certificate-canvas" width="800" height="600" style="display:none;"></canvas>
-                    <div id="preview-container"></div>
-                    <br>
-                    <button id="download-btn" class="btn-finish" style="display:none; margin-bottom: 15px;" onclick="downloadCertificate()">Baixar Imagem</button>
+                    <div id="preview-container" style="margin-top: 15px;"></div>
+                    <button id="download-btn" class="btn btn-secondary" style="display:none; margin-top: 15px;" onclick="downloadCertificate()"><i class="fa-solid fa-download"></i> Baixar Imagem</button>
                 </div>
-                <br>
-                <a href="home.html" class="btn-finish">Finalizar Treinamento</a>
+                
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="home.html" class="btn btn-secondary"><i class="fa-solid fa-house"></i> Voltar para Início</a>
+                    <a href="treinamento2.html" class="btn btn-primary">Próximo: Comunicação Assertiva <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
             </section>
         </div> 
         
         <nav class="navigation">
-            <button id="prevBtn">Anterior</button>
-            <button id="nextBtn">Próximo</button>
+            <button id="prevBtn"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+            <button id="nextBtn">Próximo <i class="fa-solid fa-arrow-right"></i></button>
         </nav>
     </div> 
 

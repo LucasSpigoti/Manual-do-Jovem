@@ -2,78 +2,118 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Comunicação Assertiva</title>
+    <title>Comunicação Assertiva | Manual do Jovem</title>
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
+        /* Estilos do container integrados ao novo tema limpo */
+        .training-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: var(--branco);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 40px;
+        }
+        .progress-container {
+            width: 100%;
+            background: #e2e8f0;
+            border-radius: 10px;
+            height: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        #progress-bar {
+            height: 100%;
+            background: var(--azul-principal, #3bb3fb);
+            width: 100%;
+        }
+        .video-container { text-align: center; }
+        .video-container h2 { color: var(--azul-escuro-bg); margin-bottom: 10px; }
+        
         .video-wrapper {
             position: relative;
             width: 100%;
-            max-width: 700px; 
-            margin: 20px auto;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 230, 118, 0.4);
+            max-width: 750px; 
+            margin: 30px auto;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); /* Sombra mais clean, sem neon */
             overflow: hidden;
             background: #000;
+            padding-bottom: 56.25%;
+            height: 0;
         }
-        video {
-            width: 100%;
-            display: block;
+        .video-wrapper iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
         }
-        .video-container {
-            padding: 30px;
-            text-align: center;
+        
+        /* Estilos Quiz */
+        .slide { display: none; animation: fadeIn 0.5s; text-align: center; }
+        .slide.active { display: block; }
+        .options-grid { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; text-align: left; }
+        .options-grid button {
+            background: #f8f9fc; border: 1px solid #e2e8f0; padding: 15px; border-radius: 8px; cursor: pointer; font-family: inherit; transition: 0.3s;
         }
+        .options-grid button:hover { border-color: var(--azul-principal, #3bb3fb); background: #f0f8ff; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
-            <img src="logo.png" alt="Manual do Jovem" class="logo-img">
+        <div class="header-container">
+            <div class="logo">
+                <a href="home.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+                    <img src="logo.png" alt="Manual do Jovem" class="logo-img">
+                    <span class="logo-text">Manual<strong>Jovem</strong></span>
+                </a>
+            </div>
+            <nav class="navbar">
+                <a href="home.html">Home</a>
+                <a href="#" class="active">Treinamentos</a>
+            </nav>
         </div>
     </header>
 
     <div class="training-container">
         <div class="progress-container">
-            <div id="progress-bar" style="width: 100%;"></div>
+            <div id="progress-bar"></div>
         </div>
 
-        <div class="video-container">
-            <h2><i class="fas fa-futbol"></i> Módulo: Comunicação Assertiva <i class="fas fa-bullhorn"></i></h2>
-            <p style="color: var(--verde-copa); margin-bottom: 25px;">Assista à aula completa no player abaixo para liberar o seu desafio tático!</p>
+        <div class="video-container slide active" id="video-slide">
+            <h2><i class="fa-solid fa-bullhorn" style="color: var(--azul-principal);"></i> Módulo: Comunicação Assertiva</h2>
+            <p style="color: var(--texto-cinza); margin-bottom: 25px;">Assista à aula completa no player abaixo para liberar o seu desafio de conhecimento!</p>
             
-           <!-- PLAYER DE VÍDEO DO DRIVE ADAPTADO PARA O SITE -->
-            <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px; box-shadow: 0 0 20px rgba(0, 230, 118, 0.4);">
+            <div class="video-wrapper">
                 <iframe 
                     src="https://drive.google.com/file/d/1FQPHppsHUA8QaTJKsRfJDydLxy0AEB1l/preview" 
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                 </iframe>
             </div>
 
-            <p style="margin-top: 30px; font-size: 0.95rem;">Terminou de assistir e revisou a estratégia?</p>
-            <button class="btn-neon" onclick="startQuiz()" style="margin-top: 10px; margin-bottom: 10px;">
-                <i class="fas fa-play"></i> Apitar o Início do Quiz
+            <p style="margin-top: 30px; font-size: 0.95rem; color: var(--texto-escuro);">Terminou de assistir e revisou o conteúdo?</p>
+            <button class="btn btn-primary" onclick="startQuiz()" style="margin-top: 15px; padding: 12px 30px; font-size: 1.1rem;">
+                <i class="fa-solid fa-play"></i> Iniciar o Quiz
             </button>
-
-            <section id="quiz-container" class="slide" style="display: none;">
-                <h2 id="quiz-question">Pergunta aqui?</h2>
-                <div id="quiz-options" class="options-grid"></div>
-                <p id="quiz-feedback" style="margin-top: 15px; font-weight: bold;"></p>
-            </section>
-
-            <section id="quiz-result" class="slide" style="display: none;">
-                <h2><i class="fas fa-trophy" style="color: var(--amarelo-copa);"></i> Fim de Jogo!</h2>
-                <p id="score-text"></p>
-                <br>
-                <a href="home.html" class="btn-finish"><i class="fas fa-home"></i> Voltar para a Arena Inicial</a>
-            </section>
         </div>
 
+        <section id="quiz-container" class="slide">
+            <h2 id="quiz-question">Pergunta aqui?</h2>
+            <div id="quiz-options" class="options-grid"></div>
+            <p id="quiz-feedback" style="margin-top: 15px; font-weight: bold;"></p>
+        </section>
+
+        <section id="quiz-result" class="slide">
+            <h2 style="color: var(--azul-escuro-bg);"><i class="fa-solid fa-trophy" style="color: #f59e0b;"></i> Fim de Jogo!</h2>
+            <p id="score-text" style="font-size: 1.1rem; margin-bottom: 30px;"></p>
+            
+            <a href="home.html" class="btn btn-primary"><i class="fa-solid fa-house"></i> Voltar para a Home</a>
+        </section>
+        
         <nav class="navigation" style="display: none;">
             <button id="prevBtn" disabled>Anterior</button>
             <button id="nextBtn" disabled>Próximo</button>
@@ -82,7 +122,18 @@
 
     <script src="script.js"></script>
     <script>
-        // Perguntas exclusivas do Treinamento 2
+        // Adaptação rápida no JS direto na página para garantir que o quiz oculte o vídeo corretamente
+        const oldStartQuiz = window.startQuiz;
+        window.startQuiz = function() {
+            document.getElementById('video-slide').classList.remove('active');
+            if(typeof oldStartQuiz === 'function') oldStartQuiz();
+            else {
+                // Caso a função do script.js precise de ajuda na transição desta página
+                document.getElementById('quiz-container').classList.add('active');
+                // Inicialize a primeira pergunta aqui dependendo do seu script.js
+            }
+        };
+
         const meuQuiz = [
             { q: "O que define o comportamento de uma pessoa assertiva?", options: ["Falar o que pensa sem se importar em magoar os outros", "Expressar ideias e sentimentos de forma clara, honesta e respeitosa", "Ficar em silêncio para evitar qualquer tipo de conflito", "Impor sua opinião a todo custo usando um tom de voz alto"], correct: 1 },
             { q: "Qual a diferença entre a comunicação assertiva e a agressiva?", options: ["A assertiva defende direitos respeitando o outro; a agressiva ataca e desrespeita", "Não há diferença, ambas buscam obrigar o outro a concordar", "A agressiva é sempre mais eficiente no ambiente de trabalho", "A assertiva foca in ironias e piadas para desarmar a conversa"], correct: 0 },
